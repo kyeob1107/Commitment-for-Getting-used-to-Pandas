@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Commitment-for-Getting-used-to-Pandas Repository
         uses: actions/checkout@v2
         with:
-          path: Commitment-for-Getting-used-to-Pandas-repo
+          path: Commitment-for-Getting-used-to-Pandas
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
