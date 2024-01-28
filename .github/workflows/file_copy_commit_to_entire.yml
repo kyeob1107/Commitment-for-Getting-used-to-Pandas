@@ -27,8 +27,7 @@ jobs:
           destination_file="Getting-used-to-Pandas/${today}.ipynb"
 
           # Copy the specific file from B-repo to A-repo
-          cp "Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb" "$destination_file"
-        working-directory: Commitment-for-Getting-used-to-Pandas
+          cp "local_getting_used_pandas.ipynb" "$destination_file"
 
       - name: Commit and Push to Getting-used-to-Pandas Repository
         run: |
