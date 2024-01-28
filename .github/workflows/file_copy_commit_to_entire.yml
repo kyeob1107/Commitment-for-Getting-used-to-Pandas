@@ -17,8 +17,10 @@ jobs:
           path: Commitment-for-Getting-used-to-Pandas
 
       - name: Debugging - List files in Commitment-for-Getting-used-to-Pandas
-        run: ls -l
-        working-directory: Commitment-for-Getting-used-to-Pandas
+        run: |
+          cd Commitment-for-Getting-used-to-Pandas
+          ls -l
+        #working-directory: Commitment-for-Getting-used-to-Pandas
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
