@@ -18,7 +18,8 @@ jobs:
 
       - name: Debugging - List files in Commitment-for-Getting-used-to-Pandas
         run: |
-          ls -l
+          ls -l Commitment-for-Getting-used-to-Pandas
+          ls -l Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
