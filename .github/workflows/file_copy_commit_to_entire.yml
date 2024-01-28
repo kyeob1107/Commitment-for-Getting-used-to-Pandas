@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debugging
+        run: |
+          ls -l Commitment-for-Getting-used-to-Pandas   # 현재 디렉토리의 파일 목록 출력
+          ls -l Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb   # 파일의 존재 여부 확인
+        working-directory: Commitment-for-Getting-used-to-Pandas
+
       - name: Checkout Commitment-for-Getting-used-to-Pandas Repository
         uses: actions/checkout@v2
         with:
