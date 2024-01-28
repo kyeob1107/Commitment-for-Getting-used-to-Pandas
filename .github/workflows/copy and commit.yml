@@ -16,7 +16,6 @@ jobs:
     - name: Copy and rename file to destination repository
       run: |
         today=$(date +"%Y-%m-%d")
-        mkdir -p Getting-used-to-Pandas/
         cp local_getting_used_pandas.ipynb Getting-used-to-Pandas/${today}.ipynb
       if: success()
 
