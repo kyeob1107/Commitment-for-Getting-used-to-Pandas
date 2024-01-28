@@ -15,12 +15,11 @@ jobs:
 
     - name: Copy file to destination repository
       run: |
-        cp local_getting_used_pandas.ipynb ../Getting-used-to-Pandas/
-        ls -la ../Getting-used-to-Pandas/
+        cp local_getting_used_pandas.ipynb $GITHUB_WORKSPACE/../Getting-used-to-Pandas/
       if: success()
 
     - name: Change directory to destination repository
-      run: cd ../Getting-used-to-Pandas/
+      run: cd $GITHUB_WORKSPACE/../Getting-used-to-Pandas/
 
     - name: Configure Git
       run: |
@@ -29,7 +28,7 @@ jobs:
 
     - name: Check if file exists in source repository
       run: |
-        if [ -f "../Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb" ]; then
+        if [ -f "$GITHUB_WORKSPACE/local_getting_used_pandas.ipynb" ]; then
           echo "File exists in source repository. This is an error."
           exit 1
         fi
@@ -41,4 +40,3 @@ jobs:
         git push origin main  # 또는 원하는 브랜치
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
