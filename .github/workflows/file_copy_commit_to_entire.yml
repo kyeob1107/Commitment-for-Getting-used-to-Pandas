@@ -18,14 +18,14 @@ jobs:
 
       - name: Debugging - List files in Commitment-for-Getting-used-to-Pandas
         run: |
-          cd Commitment-for-Getting-used-to-Pandas
-          ls -l
+          ls -l $GITHUB_WORKSPACE/Commitment-for-Getting-used-to-Pandas
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
+          # 날짜별 기록해줄 리포지토리에 오늘날짜 형태로 파일 설정
           today=$(date +"%Y-%m-%d")
-          destination_file="Getting-used-to-Pandas/${today}.ipynb"
-          cp "local_getting_used_pandas.ipynb" "$destination_file"
+          destination_file="$GITHUB_WORKSPACE/Getting-used-to-Pandas/${today}.ipynb"
+          cp "$GITHUB_WORKSPACE/Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb" "$destination_file"
 
       - name: Commit and Push to Getting-used-to-Pandas Repository
         run: |
