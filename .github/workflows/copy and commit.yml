@@ -16,18 +16,23 @@ jobs:
     - name: Copy and rename file to destination repository
       run: |
         today=$(date +"%Y-%m-%d")
-        destination_directory=$GITHUB_WORKSPACE/Getting-used-to-Pandas
-        mkdir -p $destination_directory
-        cp local_getting_used_pandas.ipynb $destination_directory/${today}.ipynb
+        cp local_getting_used_pandas.ipynb ../Getting-used-to-Pandas/${today}.ipynb
       if: success()
 
     - name: Change directory to destination repository
-      run: cd $GITHUB_WORKSPACE/Getting-used-to-Pandas/
+      run: cd ../Getting-used-to-Pandas/
 
     - name: Configure Git
       run: |
         git config user.email "koak1107@gmail.com"
         git config user.name "kyeob1107"
+
+    - name: Check if file exists in source repository
+      run: |
+        if [ -f "../Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb" ]; then
+          echo "File exists in source repository. This is an error."
+          exit 1
+        fi
 
     - name: Commit and push changes to destination repository
       run: |
