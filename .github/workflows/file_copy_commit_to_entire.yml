@@ -1,0 +1,36 @@
+name: Copy File from Commitment-for-Getting-used-to-Pandas to Getting-used-to-Pandas
+
+on:
+  push:
+    paths:
+      - 'local_getting_used_pandas.ipynb'
+
+jobs:
+  copy_and_commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commitment-for-Getting-used-to-Pandas Repository
+        uses: actions/checkout@v2
+        with:
+          repository: Commitment-for-Getting-used-to-Pandas-repo
+          path: Commitment-for-Getting-used-to-Pandas-repo
+
+      - name: Copy File to Getting-used-to-Pandas Repository
+        run: |
+          # Set the file name in A-repo with today's date
+          today=$(date +"%Y-%m-%d")
+          destination_file="Getting-used-to-Pandas-repo/${today}.ipynb"
+
+          # Copy the specific file from B-repo to A-repo
+          cp "Commitment-for-Getting-used-to-Pandas-repo/local_getting_used_pandas.ipynb" "$destination_file"
+        working-directory: Commitment-for-Getting-used-to-Pandas-repo
+
+      - name: Commit and Push to Getting-used-to-Pandas Repository
+        run: |
+          git config --global user.email "koak1107@gmail.com"
+          git config --global user.name "kyeob1107"
+          git add "Getting-used-to-Pandas-repo/${today}.ipynb"
+          git commit -m "${today} 타이핑한 내용"
+          git push origin main
+        working-directory: Commitment-for-Getting-used-to-Pandas-repo
