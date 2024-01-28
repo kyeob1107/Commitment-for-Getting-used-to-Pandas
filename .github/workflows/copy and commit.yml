@@ -16,15 +16,15 @@ jobs:
     - name: Copy and rename file to destination repository
       run: |
         today=$(date +"%Y-%m-%d")
-        mkdir -p ../Getting-used-to-Pandas/
-        cp local_getting_used_pandas.ipynb ../Getting-used-to-Pandas/${today}.ipynb
+        mkdir -p Getting-used-to-Pandas/
+        cp local_getting_used_pandas.ipynb Getting-used-to-Pandas/${today}.ipynb
       if: success()
 
     - name: Commit and push changes to destination repository
       run: |
-        cd ../Getting-used-to-Pandas/
-        git config --local user.email "koak1107@gmail.com"
-        git config --local user.name "kyeob1107"
+        cd Getting-used-to-Pandas/
+        git config user.email "koak1107@gmail.com"
+        git config user.name "kyeob1107"
         git add .
         git commit -m "Copy and rename local_getting_used_pandas.ipynb to 오늘날짜이름파일로"
         git push origin main  # 또는 원하는 브랜치
