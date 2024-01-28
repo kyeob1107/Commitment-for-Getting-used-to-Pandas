@@ -18,7 +18,7 @@ jobs:
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
-          # Set the file name in A-repo with today's date
+          #날짜별 기록해줄 리포지토리에 오늘날짜형태로 파일설정
           today=$(date +"%Y-%m-%d")
           destination_file="Getting-used-to-Pandas-repo/${today}.ipynb"
 
