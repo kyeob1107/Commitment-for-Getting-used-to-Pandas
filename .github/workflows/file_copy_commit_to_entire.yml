@@ -19,17 +19,17 @@ jobs:
         run: |
           #날짜별 기록해줄 리포지토리에 오늘날짜형태로 파일설정
           today=$(date +"%Y-%m-%d")
-          destination_file="Getting-used-to-Pandas-repo/${today}.ipynb"
+          destination_file="Getting-used-to-Pandas/${today}.ipynb"
 
           # Copy the specific file from B-repo to A-repo
-          cp "Commitment-for-Getting-used-to-Pandas-repo/local_getting_used_pandas.ipynb" "$destination_file"
-        working-directory: Commitment-for-Getting-used-to-Pandas-repo
+          cp "Commitment-for-Getting-used-to-Pandas/local_getting_used_pandas.ipynb" "$destination_file"
+        working-directory: Commitment-for-Getting-used-to-Pandas
 
       - name: Commit and Push to Getting-used-to-Pandas Repository
         run: |
           git config --global user.email "koak1107@gmail.com"
           git config --global user.name "kyeob1107"
-          git add "Getting-used-to-Pandas-repo/${today}.ipynb"
+          git add "Getting-used-to-Pandas/${today}.ipynb"
           git commit -m "${today} 타이핑한 내용"
           git push origin main
-        working-directory: Commitment-for-Getting-used-to-Pandas-repo
+        working-directory: Commitment-for-Getting-used-to-Pandas
