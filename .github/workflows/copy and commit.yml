@@ -1,4 +1,4 @@
-name: Copy and Rename File to Another Repository
+name: Copy File to Another Repository
 
 on:
   push:
@@ -13,10 +13,10 @@ jobs:
     - name: Checkout source repository
       uses: actions/checkout@v2
 
-    - name: Copy and rename file to destination repository
+    - name: Copy file to destination repository
       run: |
-        today=$(date +"%Y-%m-%d")
-        cp local_getting_used_pandas.ipynb ../Getting-used-to-Pandas/${today}.ipynb
+        cp local_getting_used_pandas.ipynb ../Getting-used-to-Pandas/
+        ls -la ../Getting-used-to-Pandas/
       if: success()
 
     - name: Change directory to destination repository
@@ -37,7 +37,8 @@ jobs:
     - name: Commit and push changes to destination repository
       run: |
         git add .
-        git commit -m "Copy and rename local_getting_used_pandas.ipynb to 오늘날짜이름파일로"
+        git commit -m "Copy local_getting_used_pandas.ipynb to destination repository"
         git push origin main  # 또는 원하는 브랜치
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
