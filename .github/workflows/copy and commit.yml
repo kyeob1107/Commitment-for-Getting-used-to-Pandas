@@ -16,11 +16,11 @@ jobs:
     - name: Copy and rename file to destination repository
       run: |
         today=$(date +"%Y-%m-%d")
-        cp local_getting_used_pandas.ipynb Getting-used-to-Pandas/${today}.ipynb
+        cp local_getting_used_pandas.ipynb $GITHUB_WORKSPACE/../Getting-used-to-Pandas/${today}.ipynb
       if: success()
 
     - name: Change directory to destination repository
-      run: cd Getting-used-to-Pandas/
+      run: cd $GITHUB_WORKSPACE/../Getting-used-to-Pandas/
 
     - name: Configure Git
       run: |
