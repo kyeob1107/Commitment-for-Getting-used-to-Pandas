@@ -15,6 +15,7 @@ jobs:
         with:
           repository: kyeob1107/Commitment-for-Getting-used-to-Pandas-repo
           path: Commitment-for-Getting-used-to-Pandas-repo
+          ref: main  # 혹은 사용하려는 브랜치 이름으로 변경
 
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
