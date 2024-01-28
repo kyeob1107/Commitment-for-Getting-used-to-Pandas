@@ -19,7 +19,7 @@ jobs:
       - name: Debugging - List files in Commitment-for-Getting-used-to-Pandas
         run: |
           ls -l Commitment-for-Getting-used-to-Pandas
-
+          
       - name: Copy File to Getting-used-to-Pandas Repository
         run: |
           #날짜별 기록해줄 리포지토리에 오늘날짜형태로 파일설정
