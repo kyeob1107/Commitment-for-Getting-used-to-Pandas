@@ -27,7 +27,10 @@ jobs:
         git -C Getting-used-to-Pandas/ push origin main
       if: success()
 
-    - name: Check if file exists in source repository
+    - name: Ignore errors and continue
+      run: exit 0
+
+    - name: Final check if file exists in source repository
       run: |
         if [ -f "local_getting_used_pandas.ipynb" ]; then
           echo "File exists in source repository. This is an error."
