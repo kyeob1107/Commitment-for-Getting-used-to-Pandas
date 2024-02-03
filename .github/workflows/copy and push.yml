@@ -1,0 +1,30 @@
+name: Sync Notebook to Daily Repo
+
+on:
+  push:
+    paths:
+      - 'main.ipynb'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - name: Copy file to daily repository
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          DATE=$(date +'%Y%m%d')
+          cp main.ipynb $DATE.ipynb
+          git clone https://x-access-token:${ACCESS_TOKEN}@github.com/yourusername/daily.git
+          mv $DATE.ipynb daily/
+          cd daily
+          git add $DATE.ipynb
+          git commit -m "Update notebook for $DATE"
+          git push
