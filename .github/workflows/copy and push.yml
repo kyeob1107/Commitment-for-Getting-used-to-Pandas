@@ -3,7 +3,7 @@ name: Sync Notebook to Daily Repo
 on:
   push:
     paths:
-      - 'main.ipynb'
+      - 'local_getting_used_pandas.ipynb'
 
 jobs:
   sync:
